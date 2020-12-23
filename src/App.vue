@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="header">
+    <div id="header">
 
     </div>
     <router-view/>
@@ -14,7 +14,7 @@
 @import './assets/styles/colors';
 
 #app {
-  .header {
+  #header {
     width: 100%;
     background: #fff;
     border-bottom: 1px solid $light-grey;
