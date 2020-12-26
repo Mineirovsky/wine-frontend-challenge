@@ -19,3 +19,32 @@ main {
   max-width: $content-max-width;
   margin: 0 auto;
 }
+
+button.btn {
+  padding: ($base-length * .75) $base-length;
+  border-radius: $base-length * .25;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .15);
+
+  &:focus {
+    outline: none;
+  }
+
+  &.purple {
+    background: $purple;
+    color: #FFF;
+
+    &:hover {
+      background: lighten($purple, 10%);
+    }
+    &:active {
+      background: darken($purple, 10%);
+    }
+  }
+
+  &:disabled {
+    background: $grey!important;
+    color: #FFF!important;
+  }
+}
