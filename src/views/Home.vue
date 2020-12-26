@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <section>
+    <section class="home-banner">
       <a href="#">
         <Banner/>
       </a>
@@ -24,3 +24,11 @@ import ProductList from '@/components/ProductList.vue';
 })
 export default class Home extends Vue {}
 </script>
+
+<style lang="scss">
+@import '@/assets/styles/constants';
+
+.home-banner {
+  margin-bottom: $base-length * 3;
+}
+</style>
