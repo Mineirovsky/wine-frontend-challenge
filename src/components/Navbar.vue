@@ -65,7 +65,7 @@ export default class Navbar extends Vue {
 
       a {
         text-decoration: none;
-        color: $grey;
+        color: $darker-grey;
       }
     }
   }
