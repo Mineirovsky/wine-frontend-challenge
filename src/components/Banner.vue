@@ -16,7 +16,7 @@ export default class Banner extends Vue {
 
   bannerBoxImg = bannerBoxImg
 
-  altText = 'Big Sale. É big, é desconto, é a Wine caprichando mais uma vez. Vinhos a partir de R$29,90 para sócio Wine. Confira a seleção.'
+  altText = 'Big Sale. É big, é desconto, é a Wine caprichando mais uma vez. Vinhos a partir de 29 e 90 para sócio Wine. Confira a seleção.'
 }
 </script>
 
