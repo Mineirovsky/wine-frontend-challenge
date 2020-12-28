@@ -6,16 +6,19 @@
     <main>
       <router-view/>
     </main>
+    <WineBox/>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import Navbar from './components/Navbar.vue';
+import WineBox from './components/WineBox.vue';
 
 @Component({
   components: {
     Navbar,
+    WineBox,
   },
 })
 export default class App extends Vue {}
