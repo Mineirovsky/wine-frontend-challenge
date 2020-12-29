@@ -35,9 +35,7 @@ export default class WineBox extends Vue {}
   z-index: 9999;
 
   .wine-box {
-    position: absolute;
-    top: 0;
-    right: 0;
+    margin-left: auto;
     width: 100%;
     height: 100%;
     max-width: $base-length * 22;
