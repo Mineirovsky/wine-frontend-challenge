@@ -32,6 +32,7 @@ export default class WineBox extends Vue {}
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, .25);
+  z-index: 9999;
 
   .wine-box {
     position: absolute;
