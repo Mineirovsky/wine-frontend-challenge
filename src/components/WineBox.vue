@@ -1,8 +1,8 @@
 <template>
   <div class="wine-box-container">
-    <section class="wine-box">
+    <section class="wine-box" role="dialog" aria-modal="true" aria-labelledby="wine-box-heading">
       <header>
-        <h1>WineBox</h1>
+        <h1 id="wine-box-heading">WineBox</h1>
       </header>
       <CartList/>
     </section>
