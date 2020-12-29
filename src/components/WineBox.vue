@@ -1,15 +1,23 @@
 <template>
   <div class="wine-box-container">
     <section class="wine-box">
-
+      <header>
+        <h1>WineBox</h1>
+      </header>
+      <CartList/>
     </section>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import CartList from './CartList.vue';
 
-@Component
+@Component({
+  components: {
+    CartList,
+  },
+})
 export default class WineBox extends Vue {}
 </script>
 
@@ -32,7 +40,19 @@ export default class WineBox extends Vue {}
     width: 100%;
     height: 100%;
     max-width: $base-length * 22;
-    background: $white;
+    background: $lighter-grey;
+
+    header {
+      padding: ($base-length * 1.5) $base-length;
+      background: $white;
+
+      h1 {
+        font-size: 1.25em;
+        margin: 0;
+        font-weight: 400;
+        line-height: 1rem;
+      }
+    }
   }
 }
 </style>
