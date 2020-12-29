@@ -29,6 +29,8 @@ export default class App extends Vue {}
 @import './assets/styles/colors';
 
 #app {
+  overflow: hidden;
+
   #header {
     width: 100%;
     background: #fff;
