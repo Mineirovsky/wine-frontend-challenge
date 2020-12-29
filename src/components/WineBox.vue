@@ -40,6 +40,7 @@ export default class WineBox extends Vue {}
     height: 100%;
     max-width: $base-length * 22;
     background: $lighter-grey;
+    overflow-y: scroll;
 
     header {
       padding: ($base-length * 1.5) $base-length;
