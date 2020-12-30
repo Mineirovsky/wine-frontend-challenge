@@ -54,4 +54,9 @@ button.btn {
     background: $grey!important;
     color: #FFF!important;
   }
+
+  &.icon-only {
+    box-shadow: none;
+    background: transparent;
+  }
 }
