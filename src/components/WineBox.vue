@@ -1,5 +1,5 @@
 <template>
-  <div class="wine-box-container">
+  <div v-if="show" class="wine-box-container">
     <section class="wine-box" role="dialog" aria-modal="true" aria-labelledby="wine-box-heading">
       <div class="heading">
         <h2 id="wine-box-heading">WineBox</h2>
@@ -15,17 +15,27 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import arrowIcon from '@/assets/icons/arrow.svg';
+import { mapState, mapActions } from 'vuex';
 import CartList from './CartList.vue';
 
 @Component({
   components: {
     CartList,
   },
+  computed: mapState('WineBox', ['show']),
+  methods: mapActions('WineBox', ['open', 'close']),
 })
 export default class WineBox extends Vue {
+  show!: boolean
+
+  open!: () => void
+
+  close!: () => void
+
   arrowIcon = arrowIcon
 
   onClickClose() {
+    this.close();
     this.$emit('close');
   }
 }
