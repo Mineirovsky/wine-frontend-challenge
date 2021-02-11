@@ -7,7 +7,7 @@
       <div class="heading">
         <h3>Oxford Landing Cabernet Shiraz 2016</h3>
         <button class="btn icon-only close" @click="onClickClose">
-          <img :src="closeIcon" title="Remover">
+          <img :src="closeIcon" title="Remover" draggable="false">
         </button>
       </div>
 
@@ -56,7 +56,7 @@ export default class CartItem extends Vue {
     position: relative;
     width: 100%;
 
-      .counter {
+    .counter {
       background: #000;
       border-radius: 3px;
       width: 77px;
@@ -78,22 +78,21 @@ export default class CartItem extends Vue {
         font-size: 1.25em;
       }
     }
-  }
 
-  .heading{
-    display: flex;
+    & > .heading {
+      display: flex;
 
-    h3 {
-      font-size: 1em;
-      flex-grow: 1;
-      margin: ($base-length * .25) 0;
-    }
+      h3 {
+        font-size: 1em;
+        flex-grow: 1;
+        margin: ($base-length * .25) 0;
+      }
 
-    .close {
-      margin: 0 (-$base-length) 0 ($base-length * 2);
-      flex-shrink: 0;
-      flex-grow: 0;
-      cursor: pointer;
+      .close {
+        margin: 0 (-$base-length) 0 ($base-length * 2);
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
     }
   }
 }
