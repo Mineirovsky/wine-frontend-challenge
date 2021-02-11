@@ -1,9 +1,12 @@
 <template>
   <div class="wine-box-container">
     <section class="wine-box" role="dialog" aria-modal="true" aria-labelledby="wine-box-heading">
-      <header>
-        <h1 id="wine-box-heading">WineBox</h1>
-      </header>
+      <div class="heading">
+        <h2 id="wine-box-heading">WineBox</h2>
+        <button class="btn icon-only close" @click="onClickClose">
+          <img :src="arrowIcon" title="Fechar" draggable="false">
+        </button>
+      </div>
       <CartList/>
     </section>
   </div>
@@ -11,6 +14,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import arrowIcon from '@/assets/icons/arrow.svg';
 import CartList from './CartList.vue';
 
 @Component({
@@ -18,7 +22,13 @@ import CartList from './CartList.vue';
     CartList,
   },
 })
-export default class WineBox extends Vue {}
+export default class WineBox extends Vue {
+  arrowIcon = arrowIcon
+
+  onClickClose() {
+    this.$emit('close');
+  }
+}
 </script>
 
 <style lang="scss">
@@ -42,11 +52,19 @@ export default class WineBox extends Vue {}
     background: $lighter-grey;
     overflow-y: scroll;
 
-    & > header {
+    & > .heading {
       padding: ($base-length * 1.5) $base-length;
       background: $white;
+      display: flex;
 
-      h1 {
+      .close {
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin: (-$base-length * .75) ($base-length * .25) (-$base-length * .75) (-$base-length);
+        order: -1;
+      }
+
+      h2 {
         font-size: 1.25em;
         margin: 0;
         font-weight: 400;
