@@ -6,7 +6,7 @@
       </a>
     </section>
     <section class="home-offers">
-      <ProductList/>
+      <ProductList :items="products" />
     </section>
   </div>
 </template>
@@ -15,14 +15,26 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Banner from '@/components/Banner.vue';
 import ProductList from '@/components/ProductList.vue';
+import { mapState, mapActions } from 'vuex';
+import Product from '@/types/Product';
 
 @Component({
   components: {
     Banner,
     ProductList,
   },
+  computed: mapState('Products', ['products']),
+  methods: mapActions('Products', ['fetchProducts']),
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  products!: Product[]
+
+  fetchProducts!: () => Promise<Product[]>
+
+  created() {
+    this.fetchProducts();
+  }
+}
 </script>
 
 <style lang="scss">
