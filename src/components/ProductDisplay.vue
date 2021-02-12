@@ -28,13 +28,13 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import ProductItem from '@/types/ProductItem';
+import Product from '@/types/Product';
 import formatPrice from '@/utils/formatPrice';
 import formatAriaPrice from '@/utils/formatAriaPrice';
 
 @Component
 export default class ProductDisplay extends Vue {
-  @Prop({ type: Object, required: true }) item!: ProductItem
+  @Prop({ type: Object, required: true }) item!: Product
 
   formatPrice = formatPrice
 

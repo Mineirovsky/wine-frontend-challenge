@@ -1,7 +1,7 @@
 /**
  * Product data
  */
-export default interface ProductItem {
+export default interface Product {
   available: boolean;
   image: string;
   name: string;
