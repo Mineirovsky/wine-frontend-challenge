@@ -1,7 +1,7 @@
 import Product from '@/types/Product';
 import makeResponseError from './makeResponseError';
 
-const productsUrl = process.env.PRODUCT_API_URL ?? '';
+const productsUrl = process.env.VUE_APP_PRODUCT_API_URL ?? '';
 
 export default class ProductRepository {
   /**
