@@ -11,16 +11,20 @@
       </li>
     </ul>
 
-    <!-- TODO: Replace stub -->
-    <div class="winebox"></div>
+    <CartButton />
   </nav>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import CartButton from '@/components/CartButton.vue';
 import logoImg from '../assets/images/logo.svg';
 
-@Component
+@Component({
+  components: {
+    CartButton,
+  },
+})
 export default class Navbar extends Vue {
   logoImg: string = logoImg
 
@@ -68,14 +72,6 @@ export default class Navbar extends Vue {
         color: $darker-grey;
       }
     }
-  }
-
-  // TODO: Remove stub
-  .winebox {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: #000;
   }
 }
 </style>
