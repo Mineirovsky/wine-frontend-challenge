@@ -17,6 +17,7 @@
           class="btn purple"
           :disabled="!item.available"
           :aria-label="`Adicionar ${item.name} ao carrinho`"
+          @click="addToCart"
         >
           Adicionar
         </button>
@@ -31,6 +32,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 import Product from '@/types/Product';
 import formatPrice from '@/utils/formatPrice';
 import formatAriaPrice from '@/utils/formatAriaPrice';
+import CartItem from '@/types/CartItem';
 
 @Component
 export default class ProductDisplay extends Vue {
@@ -42,6 +44,11 @@ export default class ProductDisplay extends Vue {
 
   get memberPriceSplit() {
     return this.item.priceMember.toFixed(2).split('.');
+  }
+
+  addToCart() {
+    this.$store.dispatch('Cart/addItem', { product: this.item, amount: 1 } as CartItem);
+    this.$store.dispatch('WineBox/open');
   }
 }
 </script>
