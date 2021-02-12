@@ -35,7 +35,7 @@ describe('store/Products', () => {
   it('SET_LOADING', () => {
     const state = { loading: false };
     if (!mutations?.SET_LOADING) {
-      return;
+      throw new Error('Instance not found');
     }
     mutations.SET_LOADING(state, true);
 
@@ -44,18 +44,18 @@ describe('store/Products', () => {
 
   it('SET_PRODUCTS', () => {
     const state = { products: [] as Product[] };
-    if (!mutations?.fetchProducts) {
-      return;
+    if (!mutations?.SET_PRODUCTS) {
+      throw new Error('Instance not found');
     }
 
-    mutations.fetchProducts(state, { products });
+    mutations.SET_PRODUCTS(state, products);
 
     expect(state.products).toEqual(products);
   });
 
   it('fetchProducts action', async () => {
     if (!actions?.fetchProducts) {
-      return;
+      throw new Error('Instance not found');
     }
 
     const setLoadingMock = jest.fn();
