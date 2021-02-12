@@ -1,22 +1,25 @@
 <template>
   <ul class="cart-list">
-    <li>
-      <CartItem/>
+    <li v-for="item in items" :key="item.product.name">
+      <CartItem :value="item" />
     </li>
   </ul>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import CartItemInterface from '@/types/CartItem';
+import { mapState } from 'vuex';
 import CartItem from './CartItem.vue';
 
 @Component({
   components: {
     CartItem,
   },
+  computed: mapState('Cart', ['items']),
 })
 export default class CartList extends Vue {
-
+  items!: CartItemInterface[]
 }
 </script>
 

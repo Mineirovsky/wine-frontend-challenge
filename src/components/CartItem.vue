@@ -5,7 +5,7 @@
     </figure>
     <div class="cart-item-info">
       <div class="heading">
-        <h3>Oxford Landing Cabernet Shiraz 2016</h3>
+        <h3>{{ value.product.name }}</h3>
         <button class="btn icon-only close" @click="onClickClose">
           <img :src="closeIcon" title="Remover" draggable="false">
         </button>
@@ -13,19 +13,26 @@
 
       <div class="counter"></div>
       <div class="price">
-        R$ <span class="integral">64</span>,00
+        R$ <span class="integral">{{ priceSplit[0] }}</span>,{{ priceSplit[1] }}
       </div>
     </div>
   </article>
 </template>
 
-<script>
-import { Vue, Component } from 'vue-property-decorator';
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator';
 import closeIcon from '@/assets/icons/close.svg';
+import CartItemInterface from '@/types/CartItem';
 
 @Component
 export default class CartItem extends Vue {
   closeIcon = closeIcon
+
+  @Prop() readonly value!: CartItemInterface
+
+  get priceSplit() {
+    return this.value.product.priceStock.toFixed(2).split('.');
+  }
 
   onClickClose() {
     this.$emit('remove');
