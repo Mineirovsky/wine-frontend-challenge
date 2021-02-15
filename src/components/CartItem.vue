@@ -42,6 +42,8 @@ export default class CartItem extends Vue {
   }
 
   onClickClose() {
+    this.$store.dispatch('Cart/removeItem', this.value);
+  }
 
   onIncrement() {
     const { product } = this.value;
