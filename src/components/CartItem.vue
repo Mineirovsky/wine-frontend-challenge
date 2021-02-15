@@ -11,7 +11,9 @@
         </button>
       </div>
 
-      <div class="counter"></div>
+      <div class="counter">
+        <AmountInput :amount="value.amount" @increment="onIncrement" @decrement="onDecrement" />
+      </div>
       <div class="price">
         R$ <span class="integral">{{ priceSplit[0] }}</span>,{{ priceSplit[1] }}
       </div>
@@ -23,8 +25,13 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import closeIcon from '@/assets/icons/close.svg';
 import CartItemInterface from '@/types/CartItem';
+import AmountInput from '@/components/AmountInput.vue';
 
-@Component
+@Component({
+  components: {
+    AmountInput,
+  },
+})
 export default class CartItem extends Vue {
   closeIcon = closeIcon
 
@@ -35,7 +42,15 @@ export default class CartItem extends Vue {
   }
 
   onClickClose() {
-    this.$emit('remove');
+
+  onIncrement() {
+    const { product } = this.value;
+    this.$store.dispatch('Cart/addItem', { product, amount: 1 });
+  }
+
+  onDecrement() {
+    const { product } = this.value;
+    this.$store.dispatch('Cart/addItem', { product, amount: -1 });
   }
 }
 </script>
@@ -64,10 +79,6 @@ export default class CartItem extends Vue {
     width: 100%;
 
     .counter {
-      background: #000;
-      border-radius: 3px;
-      width: 77px;
-      height: 38px;
       position: absolute;
       left: 0;
       bottom: 0;
