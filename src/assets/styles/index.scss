@@ -50,6 +50,22 @@ button.btn {
     }
   }
 
+  &.green {
+    background: $green;
+    color: #FFF;
+
+    &:hover {
+      background: lighten($green, 10%);
+    }
+    &:active {
+      background: darken($green, 10%);
+    }
+  }
+
+  &.no-shadow {
+    box-shadow: none!important;
+  }
+
   &:disabled {
     background: $grey!important;
     color: #FFF!important;
