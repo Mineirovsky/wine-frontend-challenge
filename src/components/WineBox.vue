@@ -2,7 +2,7 @@
   <div v-if="show" class="wine-box-container">
     <section class="wine-box" role="dialog" aria-modal="true" aria-labelledby="wine-box-heading">
       <div class="heading">
-        <h2 id="wine-box-heading">WineBox</h2>
+        <h2 id="wine-box-heading">WineBox ({{ count }})</h2>
         <button class="btn icon-only close" @click="onClickClose">
           <img :src="arrowIcon" title="Fechar" draggable="false">
         </button>
@@ -15,18 +15,23 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import arrowIcon from '@/assets/icons/arrow.svg';
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 import CartList from './CartList.vue';
 
 @Component({
   components: {
     CartList,
   },
-  computed: mapState('WineBox', ['show']),
+  computed: {
+    ...mapState('WineBox', ['show']),
+    ...mapGetters('Cart', ['count']),
+  },
   methods: mapActions('WineBox', ['open', 'close']),
 })
 export default class WineBox extends Vue {
   show!: boolean
+
+  count!: number
 
   open!: () => void
 
