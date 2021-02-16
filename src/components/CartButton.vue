@@ -27,6 +27,8 @@ export default class CartButton extends Vue {
 </script>
 
 <style lang="scss">
+@import '@/assets/styles/colors';
+
 .winebox-button {
   background: none;
   border: none;
@@ -49,6 +51,8 @@ export default class CartButton extends Vue {
     position: absolute;
     right: 0;
     bottom: 0;
+    color: $fern;
+    text-align: center;
   }
 
 }
