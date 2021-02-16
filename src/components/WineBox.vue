@@ -8,6 +8,17 @@
         </button>
       </div>
       <CartList/>
+      <div class="checkout-box">
+        <div class="total">
+          <small>Subtotal</small>
+          <div class="price">
+            R$ <span class="integral">{{ priceSplit[0] }}</span>,{{ priceSplit[1] }}
+          </div>
+        </div>
+        <button class="btn green no-shadow">
+          Finalizar pedido
+        </button>
+      </div>
     </section>
   </div>
 </template>
@@ -24,7 +35,7 @@ import CartList from './CartList.vue';
   },
   computed: {
     ...mapState('WineBox', ['show']),
-    ...mapGetters('Cart', ['count']),
+    ...mapGetters('Cart', ['count', 'total']),
   },
   methods: mapActions('WineBox', ['open', 'close']),
 })
@@ -32,6 +43,12 @@ export default class WineBox extends Vue {
   show!: boolean
 
   count!: number
+
+  total!: number
+
+  get priceSplit() {
+    return this.total.toFixed(2).split('.');
+  }
 
   open!: () => void
 
@@ -66,6 +83,8 @@ export default class WineBox extends Vue {
     max-width: $base-length * 22;
     background: $lighter-grey;
     overflow-y: scroll;
+    display: flex;
+    flex-flow: column;
 
     & > .heading {
       padding: ($base-length * 1.5) $base-length;
@@ -84,6 +103,43 @@ export default class WineBox extends Vue {
         margin: 0;
         font-weight: 400;
         line-height: 1rem;
+      }
+    }
+
+    .cart-list {
+      flex-grow: 1;
+    }
+
+    .checkout-box {
+      background: #FFF;
+      padding: 20px 16px;
+      box-shadow: 0px -2px 4px rgba(0, 0, 0, .05);
+
+      .total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        small {
+          font-weight: 600;
+          font-size: 10px;
+          text-transform: uppercase;
+          color: $darker-grey;
+        }
+        .price {
+          color: $purple;
+          font-size: 19px;
+
+          .integral {
+            font-size: 1.25em;
+          }
+        }
+      }
+
+      .btn {
+        width: 100%;
+        margin: 16px auto 8px auto;
+        padding: 16px;
       }
     }
   }
