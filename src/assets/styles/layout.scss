@@ -1,0 +1,21 @@
+@mixin hide-smaller-than($breakpoint, $display: 'block') {
+  display: none;
+
+  @media screen and (min-width: $breakpoint) {
+    display: $display;
+  }
+}
+
+@mixin show-smaller-than($breakpoint, $display: 'block') {
+  display: $display;
+
+  @media screen and (min-width: $breakpoint) {
+    display: none;
+  }
+}
+
+@mixin style-larger-than($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
