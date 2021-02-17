@@ -40,7 +40,8 @@ export default class Home extends Vue {
 <style lang="scss">
 @import '@/assets/styles/constants';
 
-.home-banner {
+.home-banner,
+.home-offers {
   margin-bottom: $base-length * 3;
 }
 </style>
