@@ -1,6 +1,6 @@
 <template>
   <picture class="banner">
-    <source media="(min-width: 700px)" :srcset="bannerWideImg">
+    <source media="(min-width: 576px)" :srcset="bannerWideImg">
     <img :src="bannerBoxImg" :alt="altText">
   </picture>
 </template>
