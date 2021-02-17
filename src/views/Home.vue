@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <section class="home-banner">
+    <section class="home-section">
       <a href="#">
         <Banner/>
       </a>
     </section>
-    <section class="home-offers">
+    <section class="home-section">
       <ProductList :items="products" />
     </section>
   </div>
@@ -37,11 +37,8 @@ export default class Home extends Vue {
 }
 </script>
 
-<style lang="scss">
-@import '@/assets/styles/constants';
-
-.home-banner,
-.home-offers {
-  margin-bottom: $base-length * 3;
+<style>
+.home-section {
+  margin-bottom: 48px;
 }
 </style>
