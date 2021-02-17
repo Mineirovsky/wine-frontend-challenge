@@ -1,29 +1,46 @@
 <template>
   <article class="product-display">
-    <figure>
-      <img :src="item.image" aria-hidden="true">
-    </figure>
-    <div>
-      <h1>{{ item.name }}</h1>
-      <template v-if="item.available">
-        <s :aria-label="`Preço Estoque: ${formatAriaPrice(item.priceStock)}`">
-          R$ {{ formatPrice(item.priceStock) }}
-        </s>
-        <h2 aria-hidden="true">Sócio Wine</h2>
-        <p :aria-label="`Preço para sócio Wine: ${formatAriaPrice(item.priceMember)}`">
-          R$ <span class="integral" v-text="memberPriceSplit[0]"/>,{{ memberPriceSplit[1] }}
-        </p>
-        <button
-          class="btn purple"
-          :disabled="!item.available"
-          :aria-label="`Adicionar ${item.name} ao carrinho`"
-          @click="addToCart"
-        >
-          Adicionar
-        </button>
-      </template>
-      <button v-else class="btn" disabled>Esgotado</button>
+    <div class="box">
+      <figure>
+        <img :src="item.image" aria-hidden="true">
+      </figure>
+      <div>
+        <h1>{{ item.name }}</h1>
+        <template v-if="item.available">
+          <s :aria-label="`Preço Estoque: ${formatAriaPrice(item.priceStock)}`">
+            R$ {{ formatPrice(item.priceStock) }}
+          </s>
+          <div class="price-member">
+            <h2 aria-hidden="true">Sócio Wine</h2>
+            <p :aria-label="`Preço para sócio Wine: ${formatAriaPrice(item.priceMember)}`">
+              R$ <span class="integral" v-text="memberPriceSplit[0]"/>,{{ memberPriceSplit[1] }}
+            </p>
+          </div>
+          <button
+            class="btn purple hide-sm"
+            :disabled="!item.available"
+            :aria-label="`Adicionar ${item.name} ao carrinho`"
+            @click="addToCart"
+          >
+            Adicionar
+          </button>
+        </template>
+        <button v-else class="btn hide-sm" disabled>Esgotado</button>
+        <small class="show-sm" aria-hidden="true">
+          Não sócio R$ {{ formatPrice(item.priceStock) }}
+        </small>
+      </div>
     </div>
+    <button
+      v-if="item.available"
+      class="btn purple show-sm"
+      :disabled="!item.available"
+      :aria-label="`Adicionar ${item.name} ao carrinho`"
+      @click="addToCart"
+    >
+      Adicionar
+    </button>
+    <button v-else class="btn show-sm" disabled>Esgotado</button>
   </article>
 </template>
 
@@ -58,49 +75,118 @@ export default class ProductDisplay extends Vue {
 @import '@/assets/styles/colors';
 
 .product-display {
-  background: #FFF;
-  display: flex;
-  padding: 16px 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .05);
-
-  & > * {
-    width: 50%;
-  }
-
-  figure {
-    margin: 0;
+  .box {
+    background: #FFF;
     display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    padding: 16px 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .05);
+    width: 100%;
+    flex-flow: column;
+    text-align: center;
 
-  h1 {
-    font-size: 1em;
-    margin: ($base-length * .25) 0 $base-length 0;
-  }
+    @media screen and (min-width: $medium-screen-min-width) {
+      flex-flow: row;
+      text-align: initial;
+    }
 
-  h2 {
-    font-size: (10em/14);
-    text-transform: uppercase;
-    margin: (10/16 * $base-length) 0 ($base-length * .25) 0;
-  }
+    & + .btn {
+      margin: 8px 0 16px 0;
+    }
 
-  s {
-    color: $dark-grey;
-  }
+    & > * {
+      width: 100%;
 
-  p {
-    margin: 0 0 ($base-length * .875) 0;
-    color: $purple;
+      @media screen and (min-width: $medium-screen-min-width) {
+        width: 50%;
+      }
+    }
 
-    .integral {
-      font-size: (18em/14);
+    figure {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: 1em;
+      margin: ($base-length * .25) 0 $base-length 0;
+    }
+
+    s {
+      color: $dark-grey;
+      font-size: 14px;
+    }
+
+    .price-member {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0 4px 0;
+
+      @media screen and (min-width: $medium-screen-min-width) {
+        justify-content:  initial;
+        align-items: initial;
+        flex-flow: column;
+        margin-bottom: 16px;
+      }
+
+      h2 {
+        font-size: (10em/14);
+        text-transform: uppercase;
+        margin: 0;
+        width: min-content;
+        display: block;
+
+        @media screen and (min-width: $medium-screen-min-width) {
+          width: auto;
+        }
+      }
+
+      p {
+        margin: 0;
+        color: $purple;
+
+        .integral {
+          font-size: (18em/14);
+        }
+      }
+    }
+
+    small {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: $dark-grey;
+
+      &.show-sm {
+      display: inline !important;
+
+      @media screen and (min-width: $medium-screen-min-width) {
+        display: none !important;
+      }
+    }
     }
   }
 
   .btn {
-    display: block;
     width: 100%;
+
+    &.hide-sm {
+      display: none !important;
+
+      @media screen and (min-width: $medium-screen-min-width) {
+        display: block !important;
+      }
+    }
+
+    &.show-sm {
+      display: block !important;
+
+      @media screen and (min-width: $medium-screen-min-width) {
+        display: none !important;
+      }
+    }
   }
 }
 </style>
