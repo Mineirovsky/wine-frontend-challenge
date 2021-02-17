@@ -73,6 +73,7 @@ export default class ProductDisplay extends Vue {
 <style lang="scss">
 @import '@/assets/styles/constants';
 @import '@/assets/styles/colors';
+@import '@/assets/styles/layout';
 
 .product-display {
   .box {
@@ -84,7 +85,7 @@ export default class ProductDisplay extends Vue {
     flex-flow: column;
     text-align: center;
 
-    @media screen and (min-width: $medium-screen-min-width) {
+    @include style-larger-than($medium-screen-min-width) {
       flex-flow: row;
       text-align: initial;
     }
@@ -96,7 +97,7 @@ export default class ProductDisplay extends Vue {
     & > * {
       width: 100%;
 
-      @media screen and (min-width: $medium-screen-min-width) {
+      @include style-larger-than($medium-screen-min-width) {
         width: 50%;
       }
     }
@@ -125,21 +126,23 @@ export default class ProductDisplay extends Vue {
       align-items: center;
       margin: 10px 0 4px 0;
 
-      @media screen and (min-width: $medium-screen-min-width) {
+      @include style-larger-than($medium-screen-min-width) {
         justify-content:  initial;
         align-items: initial;
         flex-flow: column;
         margin-bottom: 16px;
       }
 
-      h2 {
+        @include style-larger-than($medium-screen-min-width) {
+          margin: 0;
+        }
         font-size: (10em/14);
         text-transform: uppercase;
         margin: 0;
         width: min-content;
         display: block;
 
-        @media screen and (min-width: $medium-screen-min-width) {
+        @include style-larger-than($medium-screen-min-width) {
           width: auto;
         }
       }
@@ -159,13 +162,7 @@ export default class ProductDisplay extends Vue {
       text-transform: uppercase;
       color: $dark-grey;
 
-      &.show-sm {
-      display: inline !important;
-
-      @media screen and (min-width: $medium-screen-min-width) {
-        display: none !important;
-      }
-    }
+      @include show-smaller-than($medium-screen-min-width, inline);
     }
   }
 
@@ -175,18 +172,13 @@ export default class ProductDisplay extends Vue {
     &.hide-sm {
       display: none !important;
 
-      @media screen and (min-width: $medium-screen-min-width) {
-        display: block !important;
-      }
-    }
+    @include show-smaller-than($medium-screen-min-width);
+  }
 
     &.show-sm {
       display: block !important;
 
-      @media screen and (min-width: $medium-screen-min-width) {
-        display: none !important;
-      }
-    }
+    @include hide-smaller-than($medium-screen-min-width, block!important);
   }
 }
 </style>

@@ -23,6 +23,7 @@ export default class ProductList extends Vue {
 
 <style lang="scss">
 @import '@/assets/styles/constants';
+@import '@/assets/styles/layout';
 
 .product-list {
   display: flex;
@@ -32,7 +33,7 @@ export default class ProductList extends Vue {
   margin: 0 -10px;
   overflow-x: scroll;
 
-  @media screen and (min-width: $medium-screen-min-width) {
+  @include style-larger-than($medium-screen-min-width) {
     flex-wrap: wrap;
     overflow-x: hidden;
   }

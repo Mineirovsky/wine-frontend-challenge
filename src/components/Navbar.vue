@@ -42,6 +42,7 @@ export default class Navbar extends Vue {
 <style lang="scss">
 @import '../assets/styles/constants';
 @import '../assets/styles/colors';
+@import '../assets/styles/layout';
 
 #navbar {
   max-width: 1180px;
@@ -65,11 +66,7 @@ export default class Navbar extends Vue {
     padding: 0;
     margin: 0;
 
-    display: none;
-
-    @media screen and (min-width: $large-screen-min-width) {
-      display: flex !important;
-    }
+    @include hide-smaller-than($large-screen-min-width, flex);
   }
 
   .nav-link {
