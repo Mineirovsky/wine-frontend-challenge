@@ -4,8 +4,8 @@
       <img :src="logoImg" alt="Wine" draggable="false">
     </router-link>
 
-    <ul class="show-lg">
-      <li v-for="item in items" :key="item.title">
+    <ul class="nav-links">
+      <li v-for="item in items" :key="item.title" class="nav-link">
         <router-link :to="item.path">
           {{ item.title }}
         </router-link>
@@ -48,15 +48,15 @@ export default class Navbar extends Vue {
   width: 100%;
   min-height: 68px;
   margin: 0 auto;
-  padding: 0 $base-length;
+  padding: 0 16px;
   display: flex;
   align-items: center;
 
   .logo {
-    margin-right: $base-length * 4;
+    margin-right: 64px;
   }
 
-  ul {
+  .nav-links {
     flex-grow: 1;
     flex-shrink: 1;
     overflow: hidden;
@@ -67,21 +67,19 @@ export default class Navbar extends Vue {
 
     display: none;
 
-    &.show-lg {
-      @media screen and (min-width: $large-screen-min-width) {
-        display: flex !important;
-      }
+    @media screen and (min-width: $large-screen-min-width) {
+      display: flex !important;
     }
+  }
 
-    li {
-      margin: 32px 50px 32px 0;
-      font-weight: 400;
-      font-size: 1.25rem;
+  .nav-link {
+    margin: 32px 50px 32px 0;
+    font-weight: 400;
+    font-size: 1.25rem;
 
-      a {
-        text-decoration: none;
-        color: $darker-grey;
-      }
+    a {
+      text-decoration: none;
+      color: $darker-grey;
     }
   }
 
