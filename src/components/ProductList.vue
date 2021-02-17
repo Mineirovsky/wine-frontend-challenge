@@ -22,27 +22,29 @@ export default class ProductList extends Vue {
 </script>
 
 <style lang="scss">
+@import '@/assets/styles/constants';
+
 .product-list {
   display: flex;
   list-style: none;
   padding: 0;
-  width: 100%;
-  margin: 0;
+  width: calc(100% + 20px);
+  margin: 0 -10px;
+  overflow-x: scroll;
+
+  @media screen and (min-width: $medium-screen-min-width) {
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
 
   .product-display {
     height:100%;
   }
 
   li {
-    width: (100%/3);
     padding: 0 10px;
-
-    &:first-of-type {
-      padding-left: 0;
-    }
-    &:last-of-type {
-      padding-right: 0;
-    }
+    width: (100%/3);
+    min-width: 180px;
   }
 }
 </style>
