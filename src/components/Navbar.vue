@@ -3,7 +3,8 @@
     <router-link to="/" class="logo" title="Página Principal">
       <img :src="logoImg" alt="Wine" draggable="false">
     </router-link>
-    <ul>
+
+    <ul class="show-lg">
       <li v-for="item in items" :key="item.title">
         <router-link :to="item.path">
           {{ item.title }}
@@ -45,6 +46,7 @@ export default class Navbar extends Vue {
 #navbar {
   max-width: 1180px;
   width: 100%;
+  min-height: 68px;
   margin: 0 auto;
   padding: 0 $base-length;
   display: flex;
@@ -55,12 +57,21 @@ export default class Navbar extends Vue {
   }
 
   ul {
-    display: flex;
     flex-grow: 1;
+    flex-shrink: 1;
+    overflow: hidden;
 
     list-style: none;
     padding: 0;
     margin: 0;
+
+    display: none;
+
+    &.show-lg {
+      @media screen and (min-width: $large-screen-min-width) {
+        display: flex !important;
+      }
+    }
 
     li {
       margin: 32px 50px 32px 0;
@@ -72,6 +83,10 @@ export default class Navbar extends Vue {
         color: $darker-grey;
       }
     }
+  }
+
+  .winebox-button {
+    margin-left: auto;
   }
 }
 </style>
