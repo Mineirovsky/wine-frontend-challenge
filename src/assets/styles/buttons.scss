@@ -1,9 +1,20 @@
 @import './colors';
 @import './constants';
 
-button.btn {
-  padding: ($base-length * .75) $base-length;
-  border-radius: $base-length * .25;
+@mixin btn-background($color) {
+  background: $color;
+
+  &:hover {
+    background: lighten($color, 10%);
+  }
+  &:active {
+    background: darken($color, 10%);
+  }
+}
+
+.btn {
+  padding: 12px 16px;
+  border-radius: 4px;
   border: none;
   font-weight: 700;
   box-shadow: 0 5px 10px rgba(0, 0, 0, .15);
@@ -13,27 +24,13 @@ button.btn {
   }
 
   &.purple {
-    background: $purple;
     color: #FFF;
-
-    &:hover {
-      background: lighten($purple, 10%);
-    }
-    &:active {
-      background: darken($purple, 10%);
-    }
+    @include btn-background($purple);
   }
 
   &.green {
-    background: $green;
     color: #FFF;
-
-    &:hover {
-      background: lighten($green, 10%);
-    }
-    &:active {
-      background: darken($green, 10%);
-    }
+    @include btn-background($green);
   }
 
   &.no-shadow {
