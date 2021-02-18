@@ -79,7 +79,11 @@ export default class ProductDisplay extends Vue {
 @import '@/assets/styles/layout';
 
 .product-display {
+  display: flex;
+  flex-direction: column;
+
   .box {
+    flex-grow: 1;
     background: $white;
     display: flex;
     padding: 16px 12px;
