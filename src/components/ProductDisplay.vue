@@ -29,7 +29,7 @@
           </button>
         </template>
         <button v-else class="btn btn-buy-desktop" disabled>Esgotado</button>
-        <small class="price-non-member" aria-hidden="true">
+        <small v-if="item.available" class="price-non-member" aria-hidden="true">
           Não sócio R$ {{ formatPrice(item.priceStock) }}
         </small>
       </div>
