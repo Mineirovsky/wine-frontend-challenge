@@ -77,13 +77,14 @@ export default class ProductDisplay extends Vue {
 
 .product-display {
   .box {
-    background: #FFF;
+    background: $white;
     display: flex;
     padding: 16px 12px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .05);
     width: 100%;
     flex-flow: column;
     text-align: center;
+    margin-bottom: 8px;
 
     @include style-larger-than($medium-screen-min-width) {
       flex-flow: row;
