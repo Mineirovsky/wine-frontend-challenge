@@ -1,0 +1,10 @@
+@import './colors';
+
+.price {
+  font-size: (16em/14);
+  color: $purple;
+
+  .integral {
+    font-size: 1.125em;
+  }
+}
