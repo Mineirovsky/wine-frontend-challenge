@@ -1,12 +1,12 @@
 <template>
   <article class="cart-item">
-    <figure>
+    <figure class="product-image">
       <img src="https://www.wine.com.br/cdn-cgi/image/q=99,f=auto,h=176/assets-images/produtos/19728-01.png" aria-hidden="true">
     </figure>
-    <div class="cart-item-info">
+    <div class="info">
       <div class="heading">
-        <h3>{{ value.product.name }}</h3>
-        <button class="btn icon-only close" @click="onClickClose">
+        <h3 class="title">{{ value.product.name }}</h3>
+        <button class="btn icon-only btn-close" @click="onClickClose">
           <img :src="closeIcon" title="Remover" draggable="false">
         </button>
       </div>
@@ -64,7 +64,7 @@ export default class CartItem extends Vue {
 .cart-item {
   display: flex;
 
-  figure {
+  .product-image {
     margin: 0;
     display: flex;
     align-items: center;
@@ -76,7 +76,7 @@ export default class CartItem extends Vue {
     }
   }
 
-  .cart-item-info {
+  .info {
     position: relative;
     width: 100%;
 
@@ -88,8 +88,6 @@ export default class CartItem extends Vue {
     }
 
     .price {
-      font-size: (16em/14);
-      color: $purple;
       position: absolute;
       right: 0;
       bottom: 0;
@@ -99,16 +97,16 @@ export default class CartItem extends Vue {
       }
     }
 
-    & > .heading {
+    > .heading {
       display: flex;
 
-      h3 {
+      .title {
         font-size: 1em;
         flex-grow: 1;
         margin: ($base-length * .25) 0;
       }
 
-      .close {
+      .btn-close {
         margin: 0 (-$base-length) 0 ($base-length * 2);
         flex-shrink: 0;
         flex-grow: 0;
