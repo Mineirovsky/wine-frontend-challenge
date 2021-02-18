@@ -1,6 +1,6 @@
 <template>
   <ul class="cart-list">
-    <li v-for="item in items" :key="item.product.name">
+    <li v-for="item in items" :key="item.product.name" class="list-item">
       <CartItem :value="item" />
     </li>
   </ul>
@@ -32,6 +32,7 @@ export default class CartList extends Vue {
   list-style: none;
   margin: 0;
 
+  .list-item {
     padding: 16px 18px 16px 0;
 
     &:not(:last-of-type)::after {

@@ -1,23 +1,23 @@
 <template>
   <article class="product-display">
     <div class="box">
-      <figure>
+      <figure class="product-image box-section">
         <img :src="item.image" aria-hidden="true">
       </figure>
-      <div>
-        <h1>{{ item.name }}</h1>
+      <div class="product-details box-section">
+        <h3 class="product-title">{{ item.name }}</h3>
         <template v-if="item.available">
-          <s :aria-label="`Preço Estoque: ${formatAriaPrice(item.priceStock)}`">
+          <s class="price-stock" :aria-label="`Preço Estoque: ${formatAriaPrice(item.priceStock)}`">
             R$ {{ formatPrice(item.priceStock) }}
           </s>
           <div class="price-member">
-            <h2 aria-hidden="true">Sócio Wine</h2>
-            <p :aria-label="`Preço para sócio Wine: ${formatAriaPrice(item.priceMember)}`">
+            <p class="member-heading" aria-hidden="true">Sócio Wine</p>
+            <p class="price" :aria-label="`Preço para sócio Wine: ${formatAriaPrice(item.priceMember)}`">
               R$ <span class="integral" v-text="memberPriceSplit[0]"/>,{{ memberPriceSplit[1] }}
             </p>
           </div>
           <button
-            class="btn purple hide-sm"
+            class="btn purple btn-buy-desktop"
             :disabled="!item.available"
             :aria-label="`Adicionar ${item.name} ao carrinho`"
             @click="addToCart"
@@ -25,22 +25,22 @@
             Adicionar
           </button>
         </template>
-        <button v-else class="btn hide-sm" disabled>Esgotado</button>
-        <small class="show-sm" aria-hidden="true">
+        <button v-else class="btn btn-buy-desktop" disabled>Esgotado</button>
+        <small class="price-non-member" aria-hidden="true">
           Não sócio R$ {{ formatPrice(item.priceStock) }}
         </small>
       </div>
     </div>
     <button
       v-if="item.available"
-      class="btn purple show-sm"
+      class="btn purple btn-buy-mobile"
       :disabled="!item.available"
       :aria-label="`Adicionar ${item.name} ao carrinho`"
       @click="addToCart"
     >
       Adicionar
     </button>
-    <button v-else class="btn show-sm" disabled>Esgotado</button>
+    <button v-else class="btn btn-buy-mobile" disabled>Esgotado</button>
   </article>
 </template>
 
@@ -90,11 +90,7 @@ export default class ProductDisplay extends Vue {
       text-align: initial;
     }
 
-    & + .btn {
-      margin: 8px 0 16px 0;
-    }
-
-    & > * {
+    .box-section {
       width: 100%;
 
       @include style-larger-than($medium-screen-min-width) {
@@ -102,21 +98,21 @@ export default class ProductDisplay extends Vue {
       }
     }
 
-    figure {
+    .product-image {
       margin: 0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    h1 {
+    .product-title {
       font-size: 1em;
       margin: 4px 0 16px 0;
     }
 
-    s {
+    .price-stock {
       color: $dark-grey;
-      font-size: 14px;
+      font-size: (12em/14);
     }
 
     .price-member {
@@ -133,9 +129,15 @@ export default class ProductDisplay extends Vue {
         margin-bottom: 16px;
       }
 
+      .member-heading,
+      .price {
+        margin: 0 4px;
         @include style-larger-than($medium-screen-min-width) {
           margin: 0;
         }
+      }
+
+      .member-heading {
         font-size: (10em/14);
         text-transform: uppercase;
         margin: 0;
@@ -146,17 +148,9 @@ export default class ProductDisplay extends Vue {
           width: auto;
         }
       }
-
-      p {
-        margin: 0;
-        color: $purple;
-
-        .integral {
-          font-size: (18em/14);
-        }
-      }
     }
 
+    .price-non-member {
       font-size: (10em/14);
       text-transform: uppercase;
       color: $dark-grey;
@@ -165,17 +159,14 @@ export default class ProductDisplay extends Vue {
     }
   }
 
-  .btn {
+  .btn-buy-mobile {
     width: 100%;
-
-    &.hide-sm {
-      display: none !important;
+    margin: 8px 0 16px 0;
 
     @include show-smaller-than($medium-screen-min-width);
   }
 
-    &.show-sm {
-      display: block !important;
+  .btn-buy-desktop {
 
     @include hide-smaller-than($medium-screen-min-width, block!important);
   }

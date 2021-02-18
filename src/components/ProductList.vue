@@ -1,6 +1,6 @@
 <template>
   <ul class="product-list">
-    <li v-for="item in items" :key="item.name">
+    <li v-for="item in items" :key="item.name" class="product-list-item">
       <ProductDisplay :item="item"/>
     </li>
   </ul>
@@ -42,7 +42,7 @@ export default class ProductList extends Vue {
     height:100%;
   }
 
-  li {
+  .product-list-item {
     padding: 0 10px;
     width: (100%/3);
     min-width: 180px;

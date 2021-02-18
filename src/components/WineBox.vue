@@ -1,21 +1,21 @@
 <template>
   <div v-if="show" class="wine-box-container">
-    <section class="wine-box" role="dialog" aria-modal="true" aria-labelledby="wine-box-heading">
+    <section class="wine-box" role="dialog" aria-modal="true" aria-labelledby="wine-box-title">
       <div class="heading">
-        <h2 id="wine-box-heading">WineBox ({{ count }})</h2>
-        <button class="btn icon-only close" @click="onClickClose">
+        <h2 id="wine-box-title" class="title">WineBox ({{ count }})</h2>
+        <button class="btn icon-only btn-close" @click="onClickClose">
           <img :src="arrowIcon" title="Fechar" draggable="false">
         </button>
       </div>
       <CartList/>
       <div class="checkout-box">
         <div class="total">
-          <small>Subtotal</small>
+          <small class="heading">Subtotal</small>
           <div class="price">
             R$ <span class="integral">{{ priceSplit[0] }}</span>,{{ priceSplit[1] }}
           </div>
         </div>
-        <button class="btn green no-shadow">
+        <button class="btn green no-shadow btn-checkout">
           Finalizar pedido
         </button>
       </div>
@@ -86,19 +86,18 @@ export default class WineBox extends Vue {
     display: flex;
     flex-flow: column;
 
-    & > .heading {
-      padding: ($base-length * 1.5) $base-length;
+    > .heading {
       background: $white;
       display: flex;
 
-      .close {
+      .btn-close {
         flex-grow: 0;
         flex-shrink: 0;
         margin: (-$base-length * .75) ($base-length * .25) (-$base-length * .75) (-$base-length);
         order: -1;
       }
 
-      h2 {
+      .title {
         font-size: 1.25em;
         margin: 0;
         font-weight: 400;
@@ -120,7 +119,7 @@ export default class WineBox extends Vue {
         justify-content: space-between;
         align-items: center;
 
-        small {
+        .heading {
           font-weight: 600;
           font-size: (10em/14);
           text-transform: uppercase;
@@ -136,7 +135,7 @@ export default class WineBox extends Vue {
         }
       }
 
-      .btn {
+      .btn-checkout {
         width: 100%;
         margin: 16px auto 8px auto;
         padding: 16px;
