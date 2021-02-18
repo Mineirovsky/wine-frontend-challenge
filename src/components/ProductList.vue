@@ -32,6 +32,7 @@ export default class ProductList extends Vue {
   width: calc(100% + 20px);
   margin: 0 -10px;
   overflow-x: scroll;
+  align-items: stretch;
 
   @include style-larger-than($medium-screen-min-width) {
     flex-wrap: wrap;
