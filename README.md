@@ -1,6 +1,7 @@
 # wine-frontend-challenge
 Antes de executar, copie e renomeie o arquivo `.env.example` para `.env.local`
-e preencha a variável do arquivo com a URL da API.
+e preencha a variável do arquivo com a URL da API. Feito isso, basta seguir os
+comandos de instalação e inicialização abaixo.
 
 ## Instalação
 ```
