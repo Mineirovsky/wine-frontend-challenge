@@ -139,14 +139,16 @@ export default class ProductDisplay extends Vue {
       }
 
       .member-heading {
+        color: $black;
+        text-align: right;
         font-size: (10em/14);
         text-transform: uppercase;
-        margin: 0;
         width: min-content;
         display: block;
 
         @include style-larger-than($medium-screen-min-width) {
           width: auto;
+          text-align: left;
         }
       }
     }
