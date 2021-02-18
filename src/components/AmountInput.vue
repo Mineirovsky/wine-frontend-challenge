@@ -30,6 +30,7 @@ export default class AmountInput extends Vue {
 
 <style lang="scss">
 @import '@/assets/styles/colors';
+
 .amount-input {
   border: solid 1px $dark-grey;
   border-radius: 3px;
@@ -43,17 +44,16 @@ export default class AmountInput extends Vue {
     background: none;
     border: none;
     height: 38px;
-
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     color: $dark-grey;
-    font-size: 20px;
-
+    font-size: (20em/14);
     padding: 0 8px;
   }
 
   .display {
     font-weight: 400;
+    font-size: (16em/14);
   }
 }
 </style>

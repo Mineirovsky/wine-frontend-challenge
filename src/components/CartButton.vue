@@ -53,6 +53,7 @@ export default class CartButton extends Vue {
     bottom: 0;
     color: $fern;
     text-align: center;
+    font-size: (11em/14);
   }
 
 }

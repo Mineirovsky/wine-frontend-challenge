@@ -157,8 +157,7 @@ export default class ProductDisplay extends Vue {
       }
     }
 
-    small {
-      font-size: 10px;
+      font-size: (10em/14);
       text-transform: uppercase;
       color: $dark-grey;
 

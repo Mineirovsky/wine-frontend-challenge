@@ -122,7 +122,7 @@ export default class WineBox extends Vue {
 
         small {
           font-weight: 600;
-          font-size: 10px;
+          font-size: (10em/14);
           text-transform: uppercase;
           color: $darker-grey;
         }
@@ -131,7 +131,7 @@ export default class WineBox extends Vue {
           font-size: 19px;
 
           .integral {
-            font-size: 1.25em;
+            font-size: (24em/16);
           }
         }
       }
