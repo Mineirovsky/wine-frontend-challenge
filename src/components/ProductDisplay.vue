@@ -12,7 +12,10 @@
           </s>
           <div class="price-member">
             <p class="member-heading" aria-hidden="true">Sócio Wine</p>
-            <p class="price" :aria-label="`Preço para sócio Wine: ${formatAriaPrice(item.priceMember)}`">
+            <p
+              class="price"
+              :aria-label="`Preço para sócio Wine: ${formatAriaPrice(item.priceMember)}`"
+            >
               R$ <span class="integral" v-text="memberPriceSplit[0]"/>,{{ memberPriceSplit[1] }}
             </p>
           </div>
