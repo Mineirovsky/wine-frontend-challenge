@@ -2,27 +2,27 @@
 Antes de executar, copie e renomeie o arquivo `.env.example` para `.env.local`
 e preencha a variável do arquivo com a URL da API.
 
-## Project setup
+## Instalação
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Iniciar Servidor de Desenvolvimento
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Compilar para Produção
 ```
 yarn build
 ```
 
-### Run your unit tests
+### Executar Testes Unitários
 ```
 yarn test:unit
 ```
 
-### Lints and fixes files
+### Análisa e Corrige Estilo de Código
 ```
 yarn lint
 ```
