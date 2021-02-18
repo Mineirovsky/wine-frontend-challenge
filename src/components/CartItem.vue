@@ -69,7 +69,7 @@ export default class CartItem extends Vue {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: ($base-length * 6);
+    width: 96px;
 
     img {
       width: 100%;
@@ -103,11 +103,11 @@ export default class CartItem extends Vue {
       .title {
         font-size: 1em;
         flex-grow: 1;
-        margin: ($base-length * .25) 0;
+        margin: 4px 0;
       }
 
       .btn-close {
-        margin: 0 (-$base-length) 0 ($base-length * 2);
+        margin: 0 -16px 0 32px;
         flex-shrink: 0;
         flex-grow: 0;
       }

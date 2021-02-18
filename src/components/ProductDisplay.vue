@@ -111,7 +111,7 @@ export default class ProductDisplay extends Vue {
 
     h1 {
       font-size: 1em;
-      margin: ($base-length * .25) 0 $base-length 0;
+      margin: 4px 0 16px 0;
     }
 
     s {

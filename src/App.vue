@@ -35,7 +35,7 @@ export default class App extends Vue {}
     width: 100%;
     background: #fff;
     border-bottom: 1px solid $light-grey;
-    margin-bottom: $base-length * 3;
+    margin-bottom: 48px;
   }
 }
 </style>

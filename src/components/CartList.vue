@@ -32,17 +32,16 @@ export default class CartList extends Vue {
   list-style: none;
   margin: 0;
 
-  li {
-    padding: $base-length ($base-length * 1.125) $base-length 0;
+    padding: 16px 18px 16px 0;
 
     &:not(:last-of-type)::after {
       border-bottom: 1px solid $light-grey;
       display: block;
-      width: calc(100% - $base-length);
+      width: calc(100% - 16px);
       content: ' ';
-      margin: 0 0 0 $base-length;
+      margin: 0 0 0 16px;
       position: relative;
-      top: $base-length;
+      top: 16px;
     }
   }
 }
