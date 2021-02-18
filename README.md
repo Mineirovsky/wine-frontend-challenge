@@ -1,34 +1,29 @@
 # wine-frontend-challenge
+Antes de executar, copie e renomeie o arquivo `.env.example` para `.env.local`
+e preencha a variável do arquivo com a URL da API. Feito isso, basta seguir os
+comandos de instalação e inicialização abaixo.
 
-## Project setup
+## Instalação
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Iniciar Servidor de Desenvolvimento
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Compilar para Produção
 ```
 yarn build
 ```
 
-### Run your unit tests
+### Executar Testes Unitários
 ```
 yarn test:unit
 ```
 
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
-
-### Lints and fixes files
+### Análisa e Corrige Estilo de Código
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
