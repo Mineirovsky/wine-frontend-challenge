@@ -46,6 +46,7 @@ export default class CartButton extends Vue {
   .badge {
     width: 20px;
     height: 20px;
+    line-height: 20px;
     border-radius: 50%;
     background: #FFF;
     position: absolute;
