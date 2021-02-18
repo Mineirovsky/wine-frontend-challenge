@@ -80,20 +80,21 @@ export default class WineBox extends Vue {
     margin-left: auto;
     width: 100%;
     height: 100%;
-    max-width: $base-length * 22;
+    max-width: 352px;
     background: $lighter-grey;
     overflow-y: scroll;
     display: flex;
     flex-flow: column;
 
     > .heading {
+      padding: 24px 16px;
       background: $white;
       display: flex;
 
       .btn-close {
         flex-grow: 0;
         flex-shrink: 0;
-        margin: (-$base-length * .75) ($base-length * .25) (-$base-length * .75) (-$base-length);
+        margin: -12px 4px -12px -16px;
         order: -1;
       }
 
@@ -110,7 +111,7 @@ export default class WineBox extends Vue {
     }
 
     .checkout-box {
-      background: #FFF;
+      background: $white;
       padding: 20px 16px;
       box-shadow: 0px -2px 4px rgba(0, 0, 0, .05);
 
@@ -126,9 +127,6 @@ export default class WineBox extends Vue {
           color: $darker-grey;
         }
         .price {
-          color: $purple;
-          font-size: 19px;
-
           .integral {
             font-size: (24em/16);
           }

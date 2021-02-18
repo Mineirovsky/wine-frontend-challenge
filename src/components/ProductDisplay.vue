@@ -170,6 +170,7 @@ export default class ProductDisplay extends Vue {
   }
 
   .btn-buy-desktop {
+    width: 100%;
 
     @include hide-smaller-than($medium-screen-min-width, block!important);
   }
