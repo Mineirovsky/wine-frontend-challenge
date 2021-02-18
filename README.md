@@ -1,4 +1,6 @@
 # wine-frontend-challenge
+Antes de executar, copie e renomeie o arquivo `.env.example` para `.env.local`
+e preencha a variável do arquivo com a URL da API.
 
 ## Project setup
 ```
@@ -20,15 +22,7 @@ yarn build
 yarn test:unit
 ```
 
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
-
 ### Lints and fixes files
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
