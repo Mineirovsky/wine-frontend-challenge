@@ -1,6 +1,12 @@
 <template>
   <div v-if="show" class="wine-box-container">
-    <section class="wine-box" role="dialog" aria-modal="true" aria-labelledby="wine-box-title">
+    <section
+      class="wine-box"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="wine-box-title"
+      v-clickaway="onClickClose"
+    >
       <div class="heading">
         <h2 id="wine-box-title" class="title">WineBox ({{ count }})</h2>
         <button class="btn icon-only btn-close" @click="onClickClose">
@@ -27,9 +33,11 @@
 import { Vue, Component } from 'vue-property-decorator';
 import arrowIcon from '@/assets/icons/arrow.svg';
 import { mapState, mapActions, mapGetters } from 'vuex';
+import { directive as clickaway } from 'vue-clickaway';
 import CartList from './CartList.vue';
 
 @Component({
+  directives: { clickaway },
   components: {
     CartList,
   },
